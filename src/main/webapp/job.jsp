@@ -140,7 +140,7 @@
                                 <p><%=currentJob.getCompany().getC_about()%></p>
                             </div>
                         </div>
-                        <a href="getProfile?companyId=<%=currentJob.getCompany().getC_id()%>" class="btn-outline">View Company Profile</button>
+                        <a href="getProfile?companyId=<%=currentJob.getCompany().getC_id()%>" class="btn-outline">View Company Profile</a>
                     </div>
                 </div>
             </div>
