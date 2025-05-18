@@ -32,8 +32,8 @@ public class indexService {
        if(( Job.getDeadline().compareTo(java.sql.Date.valueOf(LocalDate.now())) == 0 || 
             Job.getDeadline().compareTo(java.sql.Date.valueOf(LocalDate.now())) < 0) && 
             Job.IsOpened() == true){
-            new indexImpl().updateJobsStatus(Job);
             Job.setIsOpened(false);
+            new indexImpl().updateJobsStatus(Job);
             }
             newUpdatedJobStatus.add(Job);
         }

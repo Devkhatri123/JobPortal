@@ -33,10 +33,6 @@
           imageBase64 = new String(Base64.getEncoder().encode(currentJob.getCompany().getC_profileImg()));
           }
           User currentUser = (User)request.getSession(false).getAttribute("user");
-//          List<Job> appliedJobs = new userController().getAppliedJobs(currentUser.getId());
-//          Set<Job> A = new HashSet<Job>(appliedJobs);
-//          List<Job> savedJobs = new userController().getSavedJobs(currentUser.getId());
-//          Set<Job> S = new HashSet<Job>(savedJobs);
    %> 
  <jsp:include page="navbar.jsp" />
     <main class="main-content">

@@ -58,7 +58,7 @@
                  <div class="nav-item dropdown profile">
                 <span>Profile</span>
                 <ul class="sub-menu">
-                    <li><a href="profile.jsp">View profile</a></li>
+                    <li><a href="getProfile?companyId=<%=company.getC_id()%>">View profile</a></li>
                      <li><a href="editCompanyProfile.jsp">Update profile</a></li>
                     <li><a href="signOut">SignOut</a></li>
                   </ul>

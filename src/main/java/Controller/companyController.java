@@ -135,14 +135,24 @@ public class companyController {
          return companyService.getPostedJobs(companyId);
     }
     public List<User> getJobApplicants(HttpServletRequest request){
-        int jobId = Integer.parseInt(request.getParameter("jobId"));
-        return new companyService().getJobApplicants(jobId);
+      //  int jobId = Integer.parseInt(request);
+        return new companyService().getJobApplicants(request);
     }
     public boolean getCompanyById(HttpServletRequest request){
         if(request.getParameter("companyId") == null) return false;
         Company foundCompany = new companyService().getCompanyById(Integer.parseInt(request.getParameter("companyId")));
         if(foundCompany != null){
             request.setAttribute("foundCompany", foundCompany);
+            return true;
+        }
+        return false;
+    }
+    public boolean getCompanypostedJobs(HttpServletRequest request){
+        
+        int companyId = Integer.parseInt(request.getParameter("companyId"));
+       List<Job> companyPostedJobs = new companyService().getCompanypostedJobs(companyId, (List<Job>)request.getSession(false).getAttribute("allJobs"));
+        if(companyPostedJobs != null){
+            request.setAttribute("companyPostedJobs", companyPostedJobs);
             return true;
         }
         return false;

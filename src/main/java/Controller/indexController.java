@@ -41,13 +41,23 @@ public class indexController {
         List<Job> allJobs = (List<Job>)request.getSession(false).getAttribute("allJobs");
         List<Job> currentJob = allJobs.stream().filter(job -> job.getJob_id() == Integer.parseInt(jobId)).collect(Collectors.toList());
          if (currentJob != null) {
-            System.out.println("current Job =" + currentJob.get(0));
             request.setAttribute("currentJob", currentJob.get(0));
             return true;
         }
         return false;
     }
 
+     public static Job getJobById(int jobId, HttpServletRequest request) {
+       
+        List<Job> allJobs = (List<Job>)request.getSession(false).getAttribute("allJobs");
+        List<Job> currentJob = allJobs.stream().filter(job -> job.getJob_id() == jobId).collect(Collectors.toList());
+         if (currentJob != null) {
+            return currentJob.get(0);
+        }
+        return currentJob.get(0);
+    }
+    
+    
     public static ArrayList<Job> filteredJobs(HttpServletRequest request, ArrayList<Job> allJobs) {
 
         if (request.getParameter("country").equals("allcountries") && request.getParameterValues("industry") == null && request.getParameterValues("salary") == null && request.getParameterValues("experience") == null && request.getParameterValues("jobType") == null && request.getParameterValues("workLocation") == null) {
@@ -133,8 +143,9 @@ public class indexController {
         request.setAttribute("filteredJobs", filteredJobs);
         return filteredJobs;
     }
-    public static void checkedJobsClosingDate(List<Job> allJobs,HttpServletRequest request){
-        List<Job> updateJobsStatus = new indexService().updateJobsStatus(allJobs);
-        request.getSession(false).setAttribute("allJobs", updateJobsStatus);
+    public static List<Job> checkedJobsClosingDate(List<Job> allJobs,HttpServletRequest request){
+        List<Job> updatedJobsStatus = new indexService().updateJobsStatus(allJobs);
+        return updatedJobsStatus;
+       // request.getSession(false).setAttribute("allJobs", updateJobsStatus);
     }
 }

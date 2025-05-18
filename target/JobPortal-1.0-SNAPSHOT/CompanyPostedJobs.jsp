@@ -34,7 +34,6 @@
 
         <%
             User user = null;
-            List<Job> postedJobs = null;
             Set<Skill> subList = new HashSet<>();
             Company company = null;
             if (request.getSession(false) == null) {
@@ -43,25 +42,17 @@
                 return;
             }
             user = (User) request.getSession(false).getAttribute("user");
-
+            List<Job> Jobs = null;
             String imageBase64 = null;
-            if (user != null) {
-                if (user.getProfileImg() != null) {
-                    imageBase64 = new String(Base64.getEncoder().encode(user.getProfileImg()));
-                }
-            } else {
-                company = (Company) request.getSession(false).getAttribute("company");
+            company = (Company) request.getSession(false).getAttribute("company");
                 if (company != null) {
                     if (company.getC_profileImg() != null) {
                         imageBase64 = new String(Base64.getEncoder().encode(company.getC_profileImg()));
                     }
-                } else {
-                    RequestDispatcher rd = request.getRequestDispatcher("Index.jsp");
-                    rd.forward(request, response);
-                    return;
-                }
-            }
-            List<Job> Jobs = new companyController().getPostedJobs(company.getC_id(), request);
+                    Jobs = company.getJobs();
+                } 
+            
+             Jobs = (List<Job>) request.getAttribute("companyPostedJobs");
             //Set<Job> companyJobs = new HashSet<>(Jobs);
         %>
         <jsp:include page="navbar.jsp" />
@@ -71,14 +62,13 @@
         <h1 style="text-align: left;margin: 20px">Posted Jobs</h1>
         <div class="job-listings">
             <!-- Row 1 -->
-            <%if (company != null) {%>
             <%
-        if (company.getJobs() != null) {
+        if (Jobs != null) {
 
             for (Job job : Jobs) {%>
             <%String imageBase642 = null;
                 if (job.getCompany().getC_profileImg() != null) {
-                    imageBase642 = new String(Base64.getEncoder().encode(job.getCompany().getC_profileImg()));
+                    imageBase64 = new String(Base64.getEncoder().encode(job.getCompany().getC_profileImg()));
                 }
                 if (job.getJobSkills().size() > 3) {
                     subList = job.getJobSkills().stream().limit(3).collect(Collectors.toSet());
@@ -90,7 +80,7 @@
                 <div class="job-card-header">
                     <div class="company-logo linkedin">
                         <%if (imageBase64 != null) {%>
-                        <img src="data:image/png;base64,<%=imageBase642%>" alt="Company Pic">
+                        <img src="data:image/png;base64,<%=imageBase64%>" alt="Company Pic">
                         <%} else { %>
                         <img src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
                              alt="Profile picture" class="profile-pic">
@@ -128,7 +118,7 @@
             </div>
             <%}
         }%>
-            <%}%>
+            
         </div>
         </div>
     </body>

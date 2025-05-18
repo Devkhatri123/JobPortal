@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.User;
+import model.Company;
 
 /**
  *
@@ -30,12 +31,13 @@ public class getJobApplicants extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/index");
             return;
         }
+       
         List<User> applicants = new companyController().getJobApplicants(request);
         if(applicants != null){
             request.setAttribute("applicants", applicants);
             RequestDispatcher rd = request.getRequestDispatcher("JobApplicants.jsp");
             rd.forward(request, response);
-        }
+        }else  response.sendRedirect(request.getContextPath() + "/index");
     }
 
      @Override

@@ -33,15 +33,12 @@
             }
             
 
-            if ((User) request.getSession(false).getAttribute("user") != null && (User)request.getAttribute("applicantProfile") == null) {
+            if ((User) request.getSession(false).getAttribute("user") != null && (User)request.getAttribute("applicantProfile") == null && (Company)request.getAttribute("foundCompany") == null) {
                 user = (User) request.getSession(false).getAttribute("user");
-            } else {
-                if ((Company) request.getSession(false).getAttribute("company") != null && (User)request.getAttribute("applicantProfile") == null) {
-                   company = (Company) request.getSession(false).getAttribute("company");
-                }
-                
-            }
-             if((User)request.getAttribute("applicantProfile") != null){
+            } else if ((Company) request.getSession(false).getAttribute("company") != null && (User)request.getAttribute("applicantProfile") == null && (Company)request.getAttribute("foundCompany") == null) {
+                company = (Company) request.getSession(false).getAttribute("company");
+           
+            } else if((User)request.getAttribute("applicantProfile") != null){
               user = (User) request.getAttribute("applicantProfile");
             }else if ((Company)request.getAttribute("foundCompany") != null){
               company = (Company) request.getAttribute("foundCompany");

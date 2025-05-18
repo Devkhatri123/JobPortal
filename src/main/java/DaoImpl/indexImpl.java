@@ -53,7 +53,6 @@ public class indexImpl implements Dao.index{
         try{
            transaction = Session.beginTransaction();
            job = (Job) Session.get(Job.class,Job.getJob_id());
-           job.setIsOpened(false);
            Session.merge(job);
            transaction.commit();
            

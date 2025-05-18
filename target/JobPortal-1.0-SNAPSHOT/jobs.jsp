@@ -28,8 +28,8 @@
            Set<Skill> subList = new HashSet<>();
             List<Job> allJobs = null;
             if (request.getSession(false).getAttribute("allJobs") != null) {
-                indexController.checkedJobsClosingDate((List<Job>)request.getSession(false).getAttribute("allJobs"),request);
-                allJobs = (List<Job>) request.getSession(false).getAttribute("allJobs");
+               allJobs = indexController.checkedJobsClosingDate((List<Job>)request.getSession(false).getAttribute("allJobs"),request);
+               // allJobs = (List<Job>) request.getSession(false).getAttribute("allJobs");
                 allJobs = allJobs.stream().filter(job -> job.IsOpened() == true).collect(Collectors.toList());
                 if(allJobs.size() > 8){
                 allJobs = allJobs.stream().limit(8).collect(Collectors.toList());

@@ -23,6 +23,7 @@ D:\JobPortal\src\main\java\Dao\skillDao.java
 D:\JobPortal\src\main\java\model\Skill.java
 D:\JobPortal\src\main\java\Exception\IncorrectFileType.java
 D:\JobPortal\src\main\java\Dao\index.java
+D:\JobPortal\src\main\java\Servlet\companyPostedJobs.java
 D:\JobPortal\src\main\java\DaoImpl\userDaoImpl.java
 D:\JobPortal\src\main\java\DaoImpl\categoryDaoImpl.java
 D:\JobPortal\src\main\java\model\category.java

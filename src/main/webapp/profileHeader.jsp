@@ -4,6 +4,7 @@
     Author     : Dev khatri
 --%>
 
+<%@page import="Controller.companyController"%>
 <%@page import="java.util.Base64"%>
 <%@page import="model.Company"%>
 <%@page import="java.util.Set"%>
@@ -23,16 +24,14 @@
     }
 
     String imageBase64 = null;
-    if ((User) request.getSession(false).getAttribute("user") != null && (User) request.getAttribute("applicantProfile") == null) {
+    if ((User) request.getSession(false).getAttribute("user") != null ) {
         user = (User) request.getSession(false).getAttribute("user");
        
-    } else {
+    } else if ((Company) request.getSession(false).getAttribute("company") != null ) {
 
-        if ((Company) request.getSession(false).getAttribute("company") != null && (User) request.getAttribute("applicantProfile") == null) {
+        if ((Company) request.getSession(false).getAttribute("company") != null ) {
             company = (Company) request.getSession(false).getAttribute("company");
-            if (company.getC_profileImg() != null) {
-                imageBase64 = new String(Base64.getEncoder().encode(company.getC_profileImg()));
-            }
+           
         } else {
             response.sendRedirect(request.getContextPath() + "/index");
         }
@@ -40,8 +39,9 @@
     if ((User) request.getAttribute("applicantProfile") != null) {
         user = (User) request.getAttribute("applicantProfile");
             
-     }else if ((Company)request.getAttribute("foundCompany") != null){
-              company = (Company) request.getAttribute("foundCompany");
+     }else if (request.getParameter("companyId") != null){
+             new companyController().getCompanyById(request);
+             company = (Company) request.getAttribute("foundCompany");
       }
     if(user != null){
     if(user.getProfileImg() != null) imageBase64 = new String(Base64.getEncoder().encode(user.getProfileImg()));
