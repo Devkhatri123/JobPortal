@@ -138,6 +138,15 @@ header p {
     margin-right: 15px;
 }
 
+.errorMSg{
+    text-align: justify;
+    margin-bottom: 10px;
+    color: #D8000C;
+    background-color: #FFBABA;
+    padding: 15px 10px 15px 9px;
+    border-radius: 3px;
+}
+
 .section-icon i {
     font-size: 18px;
 }

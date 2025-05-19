@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Skill;
+import Exception.CharacterLengthExceeded;
 
 /**
  *
@@ -46,8 +47,15 @@ public class postJob extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             companyController companyController = new companyController();
+            try{
             if(companyController.postJob(request)){
             response.sendRedirect(request.getContextPath() + "/index");
+            }
+            }catch(CharacterLengthExceeded ex){
+            request.setAttribute("errorMsg", ex.getMessage());
+            RequestDispatcher rd = request.getRequestDispatcher("postJob.jsp");
+            rd.forward(request, response);
+
             }
     }
 

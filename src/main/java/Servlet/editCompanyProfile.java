@@ -45,12 +45,10 @@ public class editCompanyProfile extends HttpServlet {
                     rd.forward(request, response);
                 }
             } catch (IncorrectFileType ex) {
-                request.setAttribute("errorMsg", ex.getMessage());
+                  request.setAttribute("errorMsg", ex.getMessage());
                   RequestDispatcher rd = request.getRequestDispatcher("editCompanyProfile.jsp");
                   rd.forward(request, response);
-               // response.sendRedirect(request.getContextPath() + "/editCompanyProfile");
-
-            }
+             }
         } else {
             response.sendRedirect(request.getContextPath() + "/index");
         }

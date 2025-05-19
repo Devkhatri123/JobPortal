@@ -42,7 +42,11 @@
                 </header>
 
                 <form action="${pageContext.request.contextPath}/postJob" method="post">
+                   
                     <div class="form-section">
+                         <% if (request.getAttribute("errorMsg") != null) { %>
+           <p class="errorMSg"><%=request.getAttribute("errorMsg")%></p>
+      <% }%>
                         <div class="section-header">
                             <div class="section-icon">
                                 <i class="fas fa-file-alt"></i>

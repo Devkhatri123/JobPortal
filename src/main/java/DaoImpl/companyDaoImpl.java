@@ -13,6 +13,7 @@ import model.Company;
 import model.Job;
 import model.User;
 import org.hibernate.query.Query;
+import util.authUtil;
 
 /**
  *
@@ -49,10 +50,10 @@ public class companyDaoImpl implements companyDao {
         Transaction transaction = null;
         Company company = null;
         try {
-            Query query = Session.createQuery("from Company where c_email=:email and c_password=:password", Company.class);
+            Query query = Session.createQuery("from Company where c_email=:email", Company.class);
             query.setParameter("email", email);
-            query.setParameter("password", password);
             company = (Company) query.uniqueResult();
+            if(!authUtil.checkhashedPw(password, company.getC_password())) return null;
             System.out.println("company name : " + company.getC_name());
         } catch (Exception ex) {
             if (transaction != null) {

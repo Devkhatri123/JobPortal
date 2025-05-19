@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Exception.EmailisAlreadyInUse;
+import Exception.EmailAlreadyInUse;
 
 /**
  *
@@ -29,7 +29,7 @@ public class signUp extends HttpServlet {
         if(new authController().signUp(request)){
            response.sendRedirect(request.getContextPath() + "/index");
        }
-        }catch(EmailisAlreadyInUse ex){
+        }catch(EmailAlreadyInUse ex){
             request.setAttribute("errorMsg", ex.getMessage());
             RequestDispatcher rd = request.getRequestDispatcher("signUp.jsp");
             rd.forward(request, response);

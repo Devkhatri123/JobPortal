@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package Dao;
-import Exception.EmailisAlreadyInUse;
+import Exception.EmailAlreadyInUse;
 import java.util.List;
 import java.util.Set;
 import model.User;

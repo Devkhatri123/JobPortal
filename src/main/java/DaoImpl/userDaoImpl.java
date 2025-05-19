@@ -14,7 +14,7 @@ import model.Job;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.authUtil;
-import Exception.EmailisAlreadyInUse;
+import Exception.EmailAlreadyInUse;
 
 /**
  *
