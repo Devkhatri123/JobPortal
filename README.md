@@ -4,32 +4,31 @@ A Java-Based Web Application for Job Search and Recruitment
 Developed JobPortal, a robust web application using Java, JSP, Servlets, JPA, Hibernate, MySQL, and the MVC architecture pattern.
 
 Features:
+
 1-Displays active job listings with unpassed deadlines.
+
 2-Offers filtering options by city, field, salary, experience, and job type.
+
 3-Provides detailed job descriptions with options to save or apply.
+
 4-Allows companies to manage their profiles, post jobs, and view applicant profiles including CVs.
+
 5-Enables applicants to update their profiles and track saved/applied jobs.
 
 Tech Stack:
+
 1-Java
+
 2-Servlet
+
 3-JSP
+
 4-MySQL
+
 5-JPA
+
 6-Hibernate
-Developed JobPortal, a robust web application using Java, JSP, Servlets, JPA, Hibernate, MySQL, and the MVC architecture pattern. 
-Features: 
-1-Displays active job listings with unpassed deadlines.
-2-Offers filtering options by city, field, salary, experience, and job type. 
-3-Provides detailed job descriptions with options to save or apply.
-4-Allows companies to manage their profiles, post jobs, and view applicant profiles including CVs. 5-Enables applicants to update their profiles and track saved/applied jobs. 
-Tech Stack: 
-1-Java
-2-Servlet 
-3-JSP
-4-MySQL 
-5-JPA 
-6-Hibernate
+
 
 # Home page 
 ![image](https://github.com/user-attachments/assets/d6dead4d-046d-473c-8d51-f1181ca4e063)
