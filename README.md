@@ -38,7 +38,7 @@ Tech Stack:
 ![image](https://github.com/user-attachments/assets/40044ec7-abaa-4f80-862d-44c9eab9434f)
 # SignUp page
 ![image](https://github.com/user-attachments/assets/5bb10706-1bba-4fe5-a4f1-5bc0f4059ac6)
-#SignIn page
+# SignIn page
 ![image](https://github.com/user-attachments/assets/d13932b1-0a2d-4904-a8f1-ad169984eb65)
 # update applicant profile page
 ![image](https://github.com/user-attachments/assets/b5ba84da-68fe-49d9-8534-734f993c8b53)
