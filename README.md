@@ -36,7 +36,7 @@ Tech Stack:
 # View Applicant cv
 ![image](https://github.com/user-attachments/assets/b8f0fe16-f791-493d-8d6a-2da0c39f751a)
 # Edit Company profile page
-![image](https://github.com/user-attachments/assets/777674ec-a256-4c3e-804f-79f5fdc58cb2)
+![image](https://github.com/user-attachments/assets/40044ec7-abaa-4f80-862d-44c9eab9434f)
 # SignUp page
 ![image](https://github.com/user-attachments/assets/5bb10706-1bba-4fe5-a4f1-5bc0f4059ac6)
 #SignIn page
